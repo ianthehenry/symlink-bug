@@ -1,6 +1,6 @@
 # symlink bug
 
-This repo demonstrates an apparent error in the way `coffeeify` handles requiring files in directories in `node_module`s.
+This repo demonstrates an apparent error in the way `coffeeify` handles requiring files in directories in `node_modules`.
 
 To see the bug in action:
 
