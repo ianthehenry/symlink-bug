@@ -1,6 +1,6 @@
 # symlink bug
 
-This repo demonstrates an apparent error in the way `coffeeify` handles symlinks to directories.
+This repo demonstrates an apparent error in the way `coffeeify` handles requiring files in directories in `node_module`s.
 
 To see the bug in action:
 
@@ -15,6 +15,10 @@ In both the coffee and js versions, there is a symlink called `lib` in the `node
 It appears that coffeeify is doing something strange with the registered require extension that makes it unable to require coffee files in subdirectories of `node_modules`.
 
 Symlinks directly to coffeescript files work correctly, though. As a demonstration of this, see:
+
+    $ node_modules/.bin/browserify -t coffeeify -e coffee-src/foo-require-file.coffee
+
+This doesn't actually seem limited to symlinks. Requiring from a normal directory fails as well:
 
     $ node_modules/.bin/browserify -t coffeeify -e coffee-src/foo-require-file.coffee
 
